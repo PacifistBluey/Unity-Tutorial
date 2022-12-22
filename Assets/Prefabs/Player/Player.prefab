@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 7364544112301061023}
   - component: {fileID: 7364544112301061021}
   - component: {fileID: 7364544112301060994}
-  - component: {fileID: 7364544112301060995}
   - component: {fileID: 7364544112301060992}
+  - component: {fileID: 7364544112301060995}
   - component: {fileID: 7364544112301060993}
   - component: {fileID: 7364544112301060998}
   m_Layer: 7
@@ -166,6 +166,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &7364544112301060992
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7364544112301061022}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 979627a141a942a4d9a71d67647349ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7364544112301060995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,25 +205,7 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!95 &7364544112301060992
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7364544112301061022}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 979627a141a942a4d9a71d67647349ac, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  jumpSound: {fileID: 8300000, guid: 53651e6a40a0f3d4ebdebbd1dccb0fbe, type: 3}
 --- !u!114 &7364544112301060993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +231,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  fireballSound: {fileID: 8300000, guid: 905701be6e992724b8b037f6f1d98f84, type: 3}
 --- !u!114 &7364544112301060998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,3 +250,5 @@ MonoBehaviour:
   components:
   - {fileID: 7364544112301060995}
   - {fileID: 7364544112301060993}
+  deathSound: {fileID: 8300000, guid: a1e14ff0f84b9784dba43fefb295d7d6, type: 3}
+  hurtSound: {fileID: 8300000, guid: 1e3294d5c42793c4d80cb566c415689c, type: 3}

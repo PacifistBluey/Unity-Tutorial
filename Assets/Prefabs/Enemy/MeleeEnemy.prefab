@@ -149,6 +149,8 @@ MonoBehaviour:
   numberOfflashes: 0
   components:
   - {fileID: 2221706451160633329}
+  deathSound: {fileID: 8300000, guid: a1e14ff0f84b9784dba43fefb295d7d6, type: 3}
+  hurtSound: {fileID: 8300000, guid: 1e3294d5c42793c4d80cb566c415689c, type: 3}
 --- !u!114 &2221706451160633329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,12 +165,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 1
   range: 2.5
-  damage: 2
+  damage: 1
   colliderDistance: 0.45
   boxCollider: {fileID: 2221706451160633335}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  attackSound: {fileID: 8300000, guid: 61ef29455c781b54b89cfb75e0d085d9, type: 3}
 --- !u!114 &4357842563588021578
 MonoBehaviour:
   m_ObjectHideFlags: 0

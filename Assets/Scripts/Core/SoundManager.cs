@@ -15,4 +15,11 @@ public class SoundManager : MonoBehaviour
     {
         source.PlayOneShot(_sound);
     }
+
+    /*
+    [Header("SFX")]
+    [SerializeField] private AudioClip jumpSound;
+
+    SoundManager.instance.PlaySound(jumpSound);
+    */
 }
