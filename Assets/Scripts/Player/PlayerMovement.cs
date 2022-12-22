@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float coyoteTime;//How much time the player can hang in the air before jumping
     private float coyoteCounter;//How much time passed since the player ran off the edge
 
+    [Header("Multiple Jumps")]
+    [SerializeField] private int extraJumps;
+    private int jumpCounter;
+
     [Header("Layers")]
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
@@ -69,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded())
             {
                 coyoteCounter = coyoteTime;//Reset coyote counter when on the ground
+                jumpCounter = extraJumps;//Reset jump counter to extra jump value
             }
             else
                 coyoteCounter -= Time.deltaTime;//Start decreasing coyote counter when not on the ground
@@ -77,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (coyoteCounter < 0 && !onWall()) return;
+        if (coyoteCounter < 0 && !onWall() && jumpCounter <= 0) return;
         //if coyote is 0 or less and not on the wall, don't execute code
 
         SoundManager.instance.PlaySound(jumpSound);
@@ -93,6 +98,14 @@ public class PlayerMovement : MonoBehaviour
                 //if not on the ground and coyote counter bigger than 0, do a normal jump
                 if (coyoteCounter > 0)
                     body.velocity = new Vector2(body.velocity.x, jumpPower);
+                else
+                {
+                    if (jumpCounter > 0)
+                    {
+                        body.velocity = new Vector2(body.velocity.x, jumpPower);
+                        jumpCounter--;
+                    }
+                }
             }
 
             //reset coyote counter to zero
