@@ -14,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int extraJumps;
     private int jumpCounter;
 
+    [Header("Wall Jumping")]
+    [SerializeField] private float WallJumpX;
+    [SerializeField] private float WallJumpY;
+
     [Header("Layers")]
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
@@ -115,7 +119,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void wallJump()
     {
-
+        body.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * WallJumpX, WallJumpY));
+        wallJumpCooldown = 0;
     }
 
     private bool isGrounded()
