@@ -47,7 +47,7 @@ public class EnemyProjectile : EnemyDamage //Will damage the player every time t
             gameObject.SetActive(false); //When this hits any object, deactivate
     }
 
-    private void Deacitvate()
+    private void EnemyDeacitvate()
     {
         gameObject.SetActive(false);
     }
