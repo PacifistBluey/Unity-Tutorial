@@ -6005,6 +6005,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228dd6d54b57c934b94dc8a5260e3696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  options:
+  - {fileID: 1252693786}
+  - {fileID: 93197135}
+  - {fileID: 283430589}
+  changeSound: {fileID: 8300000, guid: d4b05519919d7024fa6e13ffac25961a, type: 3}
+  interactSound: {fileID: 8300000, guid: 9e46cb48f3681d54bb48c8f559de074d, type: 3}
 --- !u!1 &1071501500
 GameObject:
   m_ObjectHideFlags: 0
@@ -10741,7 +10747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1961152347
 RectTransform:
   m_ObjectHideFlags: 0
