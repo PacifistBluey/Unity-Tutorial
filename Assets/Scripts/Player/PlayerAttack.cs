@@ -2,13 +2,22 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private float attackCooldown;
+    [Header("Melee Attributes")]
+    [SerializeField] private Transform attackPoint;
+
+    [Header("Fireball Attributes")]
+    [SerializeField] private int fireballAmount;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
     [SerializeField] private AudioClip fireballSound;
+
+    [Header("Cooldown Variables")]
+    [SerializeField] private float attackCooldown;
+    private float cooldownTimer = Mathf.Infinity;
+
+    //Refrences
     private Animator anim;
     private PlayerMovement playerMovement;
-    private float cooldownTimer = Mathf.Infinity;
 
     private void Awake()
     {
@@ -26,10 +35,9 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
+
         SoundManager.instance.PlaySound(fireballSound);
         anim.SetTrigger("attack");
-        cooldownTimer = 0;
-
         //pool fireballs
         fireballs[FindFireball()].transform.position = firePoint.position;
         fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
