@@ -16183,10 +16183,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7364544112301060993, guid: 5f716c588edebf54a99a0a7aacc02db7, type: 3}
-      propertyPath: totalFireballAmount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7364544112301060993, guid: 5f716c588edebf54a99a0a7aacc02db7, type: 3}
       propertyPath: fireballs.Array.data[0]
       value: 
       objectReference: {fileID: 830057239}

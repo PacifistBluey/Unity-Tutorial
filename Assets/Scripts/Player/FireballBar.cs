@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class FireballBar : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class FireballBar : MonoBehaviour
 
     private void Update()
     {
-        currentfireballBar.fillAmount = Attacking.currentFireballAmount / 10;
+        currentfireballBar.fillAmount = Attacking.currentFireballAmount / fireballDivisor;
 
         if (Attacking.currentFireballAmount == 10)
             currentfireballBar.color = Color.white;

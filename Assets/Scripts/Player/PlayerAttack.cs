@@ -10,8 +10,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
     [SerializeField] private AudioClip fireballSound;
-    [SerializeField] private float totalFireballAmount;
-    public float currentFireballAmount { get; private set; }
+    [SerializeField] public float totalFireballAmount;
+    public float currentFireballAmount;
 
     [Header("Cooldown Variables")]
     [SerializeField] private float attackCooldown;
@@ -41,7 +41,9 @@ public class PlayerAttack : MonoBehaviour
 
             //Range attack
             if (Input.GetKey(KeyCode.Z) && currentFireballAmount != 0)
-                Attack();
+                anim.SetTrigger("attack");
+            else
+                anim.ResetTrigger("attack");
         }
             
 
@@ -53,12 +55,11 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         SoundManager.instance.PlaySound(fireballSound);
-        anim.SetTrigger("attack");
-        currentFireballAmount -= 1;
 
         //pool fireballs
         fireballs[FindFireball()].transform.position = firePoint.position;
         fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        currentFireballAmount -= 1;
     }
 
     private int FindFireball()

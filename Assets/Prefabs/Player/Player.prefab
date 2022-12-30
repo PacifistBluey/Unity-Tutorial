@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380d85a1e9d1de4458d4502645059fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meleeAttack: {fileID: 7364544112301060993}
 --- !u!1 &7364544110671740559
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +310,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   fireballSound: {fileID: 8300000, guid: 905701be6e992724b8b037f6f1d98f84, type: 3}
-  totalFireballAmount: 5
+  totalFireballAmount: 10
+  currentFireballAmount: 0
   attackCooldown: 0.25
 --- !u!114 &7364544112301060998
 MonoBehaviour:

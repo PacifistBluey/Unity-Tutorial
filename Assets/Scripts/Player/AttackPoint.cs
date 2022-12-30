@@ -1,13 +1,11 @@
 using UnityEngine;
-using System.Collections;
 
 public class AttackPoint : MonoBehaviour
 {
-    private BoxCollider2D coll;
+    [SerializeField] PlayerAttack meleeAttack;
 
     private void Awake()
     {
-        coll = GetComponent<BoxCollider2D>();
         gameObject.SetActive(false);
     }
 
@@ -16,6 +14,9 @@ public class AttackPoint : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             collision.GetComponent<Health>().TakeDamage(1);
+            
+            if(meleeAttack.currentFireballAmount < meleeAttack.totalFireballAmount)
+                meleeAttack.currentFireballAmount += 1;
         }
     }
 
