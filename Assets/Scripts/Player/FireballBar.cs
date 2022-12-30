@@ -1,19 +1,26 @@
+/*
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Healthbar : MonoBehaviour
+public class FireballBar : MonoBehaviour
 {
-    [SerializeField] private Health playerHealth;
-    [SerializeField] private Image totalhealthBar;
-    [SerializeField] private Image currenthealthBar;
+    [SerializeField] private PlayerAttack Attacking;
+    [SerializeField] private Image totalfireballBar;
+    [SerializeField] private Image currentfireballBar;
 
     private void Start()
     {
-        totalhealthBar.fillAmount = playerHealth.currentHealth / 10;
+        totalfireballBar.fillAmount = Attacking.currentFireballAmount / 10;
     }
 
     private void Update()
     {
-        currenthealthBar.fillAmount = playerHealth.currentHealth / 10;
+        currentfireballBar.fillAmount = Attacking.currentFireballAmount / 10;
+
+        if (Attacking.currentFireballAmount == 10)
+            currentfireballBar.color = Color.white;
+        else
+            currentfireballBar.color = new Color(1, 0, 0, 0.5f);
     }
 }
+*/

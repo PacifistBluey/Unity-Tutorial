@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 740603756610488203}
   - component: {fileID: 954225628634131624}
+  - component: {fileID: 8306170793501203776}
   m_Layer: 7
   m_Name: AttackPoint
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7092755240818462489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.179, y: -0.49, z: 0}
+  m_LocalPosition: {x: 1.036, y: -0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7364544112301061020}
@@ -57,6 +58,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9512639, y: 1.0893492}
   m_EdgeRadius: 0
+--- !u!114 &8306170793501203776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092755240818462489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 380d85a1e9d1de4458d4502645059fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7364544110671740559
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,8 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6241d95bd640a8b49b34a1bd86d64a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 740603756610488203}
-  fireballAmount: 5
+  attackPoint: {fileID: 8306170793501203776}
+  attackSound: {fileID: 8300000, guid: 61ef29455c781b54b89cfb75e0d085d9, type: 3}
   firePoint: {fileID: 7364544110671740556}
   fireballs:
   - {fileID: 0}
