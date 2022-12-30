@@ -2940,6 +2940,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &303214078 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7364544112301060993, guid: 5f716c588edebf54a99a0a7aacc02db7, type: 3}
+  m_PrefabInstance: {fileID: 7364544111566440466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6241d95bd640a8b49b34a1bd86d64a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &313333224
 GameObject:
   m_ObjectHideFlags: 0
@@ -15276,7 +15287,7 @@ MonoBehaviour:
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.5
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -15831,6 +15842,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86330e431b32fa4b96155abce3982a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Attacking: {fileID: 303214078}
+  totalfireballBar: {fileID: 79728547}
+  currentfireballBar: {fileID: 1991263825}
+  fireballDivisor: 10
 --- !u!1001 &2066238347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16167,9 +16182,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7092755240818462489, guid: 5f716c588edebf54a99a0a7aacc02db7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 7364544112301060993, guid: 5f716c588edebf54a99a0a7aacc02db7, type: 3}
+      propertyPath: totalFireballAmount
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7364544112301060993, guid: 5f716c588edebf54a99a0a7aacc02db7, type: 3}
       propertyPath: fireballs.Array.data[0]

@@ -10,8 +10,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
     [SerializeField] private AudioClip fireballSound;
-    //[SerializeField] private float totalFireballAmount;
-    //public float currentFireballAmount { get; private set; }
+    [SerializeField] private float totalFireballAmount;
+    public float currentFireballAmount { get; private set; }
 
     [Header("Cooldown Variables")]
     [SerializeField] private float attackCooldown;
@@ -20,26 +20,32 @@ public class PlayerAttack : MonoBehaviour
     //Refrences
     private Animator anim;
     private PlayerMovement playerMovement;
-    // && currentFireballAmount != 0
 
     private void Awake()
     {
        anim = GetComponent<Animator>();
        playerMovement = GetComponent<PlayerMovement>();
-       //currentFireballAmount = totalFireballAmount;
+       currentFireballAmount = totalFireballAmount;
     }
 
     private void Update()
     {
-        //Melee attack
-        if (Input.GetKey(KeyCode.LeftAlt) && cooldownTimer > attackCooldown && playerMovement.canAttack())
-            anim.SetTrigger("meleeAttack");
-        else
-            anim.ResetTrigger("meleeAttack");
+        
+        if (cooldownTimer > attackCooldown && playerMovement.canAttack())
+        {
+            //Melee attack
+            if (Input.GetKey(KeyCode.LeftAlt))
+                anim.SetTrigger("meleeAttack");
+            else
+                anim.ResetTrigger("meleeAttack");
 
-        //Range attack
-        if (Input.GetKey(KeyCode.Z) && cooldownTimer > attackCooldown && playerMovement.canAttack())
-            Attack();
+            //Range attack
+            if (Input.GetKey(KeyCode.Z) && currentFireballAmount != 0)
+                Attack();
+        }
+            
+
+        
 
         cooldownTimer += Time.deltaTime;
     }
@@ -48,7 +54,7 @@ public class PlayerAttack : MonoBehaviour
     {
         SoundManager.instance.PlaySound(fireballSound);
         anim.SetTrigger("attack");
-        //currentFireballAmount -= 1;
+        currentFireballAmount -= 1;
 
         //pool fireballs
         fireballs[FindFireball()].transform.position = firePoint.position;
