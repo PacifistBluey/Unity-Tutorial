@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpointSound;
+    [SerializeField] private PlayerAttack playerAttack;
     private Transform currentCheckpoint;
     private Health playerHealth;
     private UIManager uiManager;
@@ -25,6 +26,7 @@ public class PlayerRespawn : MonoBehaviour
         }
 
         transform.position = currentCheckpoint.position;//Move player to checkpoint position
+
         //Restore player health and reset animation
         playerHealth.Respawn();
 
@@ -41,6 +43,7 @@ public class PlayerRespawn : MonoBehaviour
             SoundManager.instance.PlaySound(checkpointSound);
             collision.GetComponent<Collider2D>().enabled = false;//Deactive checkpoint collider
             collision.GetComponent<Animator>().SetTrigger("appear");//Trigger checkpoint animation
+            playerHealth.currentHealth = playerHealth.startingHealth;//Restore player health
         }
     }
 }
