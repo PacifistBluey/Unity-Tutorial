@@ -13529,8 +13529,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 711591560}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: Restart
-        m_Mode: 1
+        m_MethodName: PauseGame
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

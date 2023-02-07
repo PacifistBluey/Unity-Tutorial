@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region Pause
-    private void PauseGame(bool status)
+    public void PauseGame(bool status)
     {
         //If status == true pause | if status == false unpause
         pauseScreen.SetActive(status);
