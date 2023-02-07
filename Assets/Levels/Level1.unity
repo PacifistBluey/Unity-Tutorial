@@ -4165,7 +4165,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 711591560}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: SoundVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9838,7 +9838,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 711591560}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: MusicVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
