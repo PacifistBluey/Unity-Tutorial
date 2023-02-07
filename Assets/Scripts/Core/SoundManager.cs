@@ -33,35 +33,18 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeSoundVolume(float _change)
     {
-        //Get base volume
-        float baseVolume = 1;
-
-        //Get initial value of volume and change it
-        float currentVolume = PlayerPrefs.GetFloat("soundVolume", 1); //Load last saved data
-        currentVolume += _change;
-
-        //Maximum or minimum volume
-        if (currentVolume > 1)
-            currentVolume = 0;
-        else if (currentVolume < 0)
-            currentVolume = 1;
-
-        //Assign final value
-        float finalVolume = currentVolume * baseVolume;
-        soundSource.volume = finalVolume;
-
-        //Save final value
-        PlayerPrefs.SetFloat("soundVolume", currentVolume);
+        ChangeSourceVolume(1, "soundVolume", _change, soundSource);
     }
 
     public void ChangeMusicVolume(float _change)
     {
-        //Get base volume
-        float baseVolume = 0.3f;
+        ChangeSourceVolume(0.3f, "musicVolume", _change, musicSource);
+    }
 
-        //Get initial value of volume and change it
-        float currentVolume = PlayerPrefs.GetFloat("musicVolume", 1); //Load last saved data
-        currentVolume += _change;
+    private void ChangeSourceVolume(float baseVolume, string volumeName, float change, AudioSource source)
+    {
+        float currentVolume = PlayerPrefs.GetFloat(volumeName, 1); //Load last saved data
+        currentVolume += change;
 
         //Maximum or minimum volume
         if (currentVolume > 1)
@@ -71,9 +54,9 @@ public class SoundManager : MonoBehaviour
 
         //Assign final value
         float finalVolume = currentVolume * baseVolume;
-        musicSource.volume = finalVolume;
+        source.volume = finalVolume;
 
         //Save final value
-        PlayerPrefs.SetFloat("musicVolume", currentVolume);
+        PlayerPrefs.SetFloat(volumeName, currentVolume);
     }
 }
