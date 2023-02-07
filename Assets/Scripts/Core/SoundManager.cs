@@ -20,6 +20,10 @@ public class SoundManager : MonoBehaviour
         //Destroy duplicate gameobjects
         else if (instance != null && instance != this)
             Destroy(gameObject);
+
+        //Assign initial volumes
+        ChangeSoundVolume(0);
+        ChangeMusicVolume(0);
     }
 
     public void PlaySound(AudioClip _sound)
@@ -29,8 +33,11 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeSoundVolume(float _change)
     {
+        //Get base volume
+        float baseVolume = 1;
+
         //Get initial value of volume and change it
-        float currentVolume = PlayerPrefs.GetFloat("soundVolume"); //Load last saved data
+        float currentVolume = PlayerPrefs.GetFloat("soundVolume", 1); //Load last saved data
         currentVolume += _change;
 
         //Maximum or minimum volume
@@ -40,7 +47,8 @@ public class SoundManager : MonoBehaviour
             currentVolume = 1;
 
         //Assign final value
-        soundSource.volume = currentVolume;
+        float finalVolume = currentVolume * baseVolume;
+        soundSource.volume = finalVolume;
 
         //Save final value
         PlayerPrefs.SetFloat("soundVolume", currentVolume);
@@ -48,8 +56,24 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeMusicVolume(float _change)
     {
-        float currentVolume = 1;
+        //Get base volume
+        float baseVolume = 0.3f;
+
+        //Get initial value of volume and change it
+        float currentVolume = PlayerPrefs.GetFloat("musicVolume", 1); //Load last saved data
         currentVolume += _change;
-        musicSource.volume = currentVolume;
+
+        //Maximum or minimum volume
+        if (currentVolume > 1)
+            currentVolume = 0;
+        else if (currentVolume < 0)
+            currentVolume = 1;
+
+        //Assign final value
+        float finalVolume = currentVolume * baseVolume;
+        musicSource.volume = finalVolume;
+
+        //Save final value
+        PlayerPrefs.SetFloat("musicVolume", currentVolume);
     }
 }

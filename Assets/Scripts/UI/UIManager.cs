@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
 
     public void MusicVolume()
     {
-
+        SoundManager.instance.ChangeMusicVolume(0.2f);
     }
 
     #endregion
