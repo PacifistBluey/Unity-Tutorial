@@ -13,5 +13,11 @@ EditorBuildSettings:
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Levels/Level2.unity
-    guid: 842a75af8f8d5e44fb65c506f8830a67
+    guid: 9493062dc5c20d940b62feda370f1bcc
+  - enabled: 1
+    path: Assets/Levels/Dialogue-Testing.unity
+    guid: 3f9c604ad9a479f41a7ba6408d17c5f3
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

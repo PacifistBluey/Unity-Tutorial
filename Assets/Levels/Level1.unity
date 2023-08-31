@@ -2512,10 +2512,9 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   - {fileID: 711591559}
-  - {fileID: 1457982739}
   - {fileID: 1687576159}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &270301673
 GameObject:
@@ -4300,7 +4299,7 @@ Transform:
   - {fileID: 1336057951}
   - {fileID: 1341806317}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483922867
 GameObject:
@@ -11689,8 +11688,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1474375769}
-  m_Father: {fileID: 261874904}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1457982740
 AudioSource:
@@ -12327,7 +12326,7 @@ Transform:
   - {fileID: 1001003582}
   - {fileID: 998346481}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545341425
 GameObject:
@@ -14299,7 +14298,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 261874904}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1687576160
 MonoBehaviour:
@@ -14502,7 +14501,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1710667458
 PrefabInstance:
@@ -16199,7 +16198,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1945406272
 GameObject:
@@ -17753,7 +17752,7 @@ PrefabInstance:
       objectReference: {fileID: 1341806318}
     - target: {fileID: 7364544112301061020, guid: 5f716c588edebf54a99a0a7aacc02db7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7364544112301061020, guid: 5f716c588edebf54a99a0a7aacc02db7, type: 3}
       propertyPath: m_LocalPosition.x
