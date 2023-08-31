@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Levels/Dialouge-Testing.unity
+- path: Assets/Levels/Dialogue-Testing.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
