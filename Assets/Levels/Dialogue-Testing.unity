@@ -1213,7 +1213,7 @@ MonoBehaviour:
   input: I'm Sans! :D
   textColor: {r: 1, g: 1, b: 1, a: 1}
   textFont: {fileID: 12800000, guid: 309f76f27db15484b8c405e4037fc023, type: 3}
-  delay: 0.1
+  delay: 0.05
   delayBetweenLines: 2
   sound: {fileID: 8300000, guid: ef9d34b7c868c584fa7aba1ff2e5c7d1, type: 3}
   characterSprite: {fileID: 21300000, guid: e5c9a5437e6bbdc439b54c1070630342, type: 3}
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   input: This is Sans again
   textColor: {r: 1, g: 1, b: 1, a: 1}
   textFont: {fileID: 12800000, guid: 309f76f27db15484b8c405e4037fc023, type: 3}
-  delay: 0.1
+  delay: 0.05
   delayBetweenLines: 2
   sound: {fileID: 8300000, guid: ef9d34b7c868c584fa7aba1ff2e5c7d1, type: 3}
   characterSprite: {fileID: 21300000, guid: e5c9a5437e6bbdc439b54c1070630342, type: 3}
