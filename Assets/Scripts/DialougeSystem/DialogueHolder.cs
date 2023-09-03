@@ -8,7 +8,7 @@ namespace DialogueSystem
     {
         private IEnumerator dialogueSeq;
 
-        private void Awake()
+        private void OnEnable()
         {
             dialogueSeq = dialogueSequence();
             StartCoroutine(dialogueSeq);
@@ -16,7 +16,7 @@ namespace DialogueSystem
 
         private void Update()
         {
-            if(Input.GetKey(KeyCode.Escape))
+            if(Input.GetKey(KeyCode.Tab))
             {
                 Deactivate();
                 gameObject.SetActive(false);

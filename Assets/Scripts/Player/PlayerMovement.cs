@@ -62,11 +62,11 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("grounded", isGrounded());
 
             //Jump
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.UpArrow))
                 Jump();
 
             //Adjustable jump height
-            if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0)
+            if (Input.GetKeyUp(KeyCode.UpArrow) && body.velocity.y > 0)
                 body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
 
             if (onWall())
