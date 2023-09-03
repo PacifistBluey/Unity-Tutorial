@@ -7,6 +7,8 @@ namespace DialogueSystem
     public class DialogueHolder : MonoBehaviour
     {
         private IEnumerator dialogueSeq;
+        private bool dialogueFinished;
+        [SerializeField] private bool dialogueUnlockable;
 
         private void OnEnable()
         {
@@ -26,12 +28,36 @@ namespace DialogueSystem
 
         private IEnumerator dialogueSequence()
         {
-            for (int i = 0; i < transform.childCount; i++)
+            if(dialogueUnlockable)
             {
-                Deactivate();
-                transform.GetChild(i).gameObject.SetActive(true);
-                yield return new WaitUntil(() => transform.GetChild(i).GetComponent<DialogueLine>().finished);
+                if (!dialogueFinished)
+                {
+                    for (int i = 0; i < transform.childCount - 1; i++)
+                    {
+                        Deactivate();
+                        transform.GetChild(i).gameObject.SetActive(true);
+                        yield return new WaitUntil(() => transform.GetChild(i).GetComponent<DialogueLine>().finished);
+                    }
+                }
+                else
+                {
+                    int index = transform.childCount - 1;
+                    Deactivate();
+                    transform.GetChild(index).gameObject.SetActive(true);
+                    yield return new WaitUntil(() => transform.GetChild(index).GetComponent<DialogueLine>().finished);
+                }
+                dialogueFinished = true;
             }
+            else
+            {
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    Deactivate();
+                    transform.GetChild(i).gameObject.SetActive(true);
+                    yield return new WaitUntil(() => transform.GetChild(i).GetComponent<DialogueLine>().finished);
+                }
+            }
+
             gameObject.SetActive(false);
         }
 

@@ -28,11 +28,6 @@ namespace DialogueSystem
 
         private void Awake()
         {
-            /*
-            textHolder = GetComponent<Text>();
-            textHolder.text = "";
-            */
-            
             imageHolder.sprite = characterSprite;
             imageHolder.preserveAspect = true;
         }
