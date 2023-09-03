@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Parameters")]
     [SerializeField] private float speed;
     [SerializeField] private float jumpPower;
+    private float horizontalInput;
 
     [Header("Coyote Time")]
     [SerializeField] private float coyoteTime;//How much time the player can hang in the air before jumping
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Wall Jumping")]
     [SerializeField] private float WallJumpX;
     [SerializeField] private float WallJumpY;
+    private float wallJumpCooldown;
 
     [Header("Layers")]
     [SerializeField] private LayerMask groundLayer;
@@ -25,11 +27,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("SFX")]
     [SerializeField] private AudioClip jumpSound;
 
+    //Core parameters
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
-    private float wallJumpCooldown;
-    private float horizontalInput;
+    private NPC_Interaction npc;
 
     
 
@@ -44,45 +46,50 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-
-        //Flip player when moving horizontal
-        if (horizontalInput > 0.01f)
-            transform.localScale = Vector3.one;
-        else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
-
-
-        //Set animator parameters
-        anim.SetBool("run", horizontalInput != 0);
-        anim.SetBool("grounded", isGrounded());
-
-        //Jump
-        if (Input.GetKeyDown(KeyCode.Space))
-            Jump();
-
-        //Adjustable jump height
-        if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0)
-            body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
-
-        if(onWall())
+        if (!inDialogue())
         {
-            body.gravityScale = 0;
-            body.velocity = Vector2.zero;
-        }
-        else
-        {
-            body.gravityScale = 7;
-            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+            horizontalInput = Input.GetAxis("Horizontal");
 
-            if (isGrounded())
+            //Flip player when moving horizontal
+            if (horizontalInput > 0.01f)
+                transform.localScale = Vector3.one;
+            else if (horizontalInput < -0.01f)
+                transform.localScale = new Vector3(-1, 1, 1);
+
+
+            //Set animator parameters
+            anim.SetBool("run", horizontalInput != 0);
+            anim.SetBool("grounded", isGrounded());
+
+            //Jump
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                Jump();
+
+            //Adjustable jump height
+            if (Input.GetKeyUp(KeyCode.UpArrow) && body.velocity.y > 0)
+                body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
+
+            if (onWall())
             {
-                coyoteCounter = coyoteTime;//Reset coyote counter when on the ground
-                jumpCounter = extraJumps;//Reset jump counter to extra jump value
+                body.gravityScale = 0;
+                body.velocity = Vector2.zero;
             }
             else
-                coyoteCounter -= Time.deltaTime;//Start decreasing coyote counter when not on the ground
+            {
+                body.gravityScale = 7;
+                body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+
+                if (isGrounded())
+                {
+                    coyoteCounter = coyoteTime;//Reset coyote counter when on the ground
+                    jumpCounter = extraJumps;//Reset jump counter to extra jump value
+                }
+                else
+                    coyoteCounter -= Time.deltaTime;//Start decreasing coyote counter when not on the ground
+            }
         }
+        else
+            anim.SetBool("run", false);
     }
 
     private void Jump()
@@ -139,5 +146,29 @@ public class PlayerMovement : MonoBehaviour
     public bool canAttack()
     {
         return horizontalInput == 0 && isGrounded() && !onWall();
+    }
+
+    private bool inDialogue()
+    {
+        if (npc != null)
+            return npc.DialogueActive();
+        else
+            return false;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "NPC")
+        {
+            npc = collision.gameObject.GetComponent<NPC_Interaction>();
+
+            if (Input.GetKey(KeyCode.Space))
+                npc.ActivateDialogue();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        npc = null;
     }
 }
