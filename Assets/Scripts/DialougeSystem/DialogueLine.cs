@@ -28,13 +28,14 @@ namespace DialogueSystem
 
         private void Awake()
         {
-            ResetLine();
+            textHolder = GetComponent<Text>();
+            textHolder.text = "";
 
             imageHolder.sprite = characterSprite;
             imageHolder.preserveAspect = true;
         }
 
-        private void OnEnable()
+        private void Start()
         {
             lineAppear = WriteText(input, textHolder, textColor, textFont, delay, sound, delayBetweenLines);
             StartCoroutine(lineAppear);
@@ -52,13 +53,6 @@ namespace DialogueSystem
                 else
                     finished = true;
             }
-        }
-
-        private void ResetLine()
-        {
-            textHolder = GetComponent<Text>();
-            textHolder.text = "";
-            finished = false;
         }
     }
 }
